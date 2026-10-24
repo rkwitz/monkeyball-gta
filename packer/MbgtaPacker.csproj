@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <!-- CodeWalker isn't redistributed with this repo; build.py clones it into ../build/CodeWalker. -->
+    <CodeWalkerDir Condition="'$(CodeWalkerDir)' == ''">$(MSBuildThisFileDirectory)..\build\CodeWalker</CodeWalkerDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(CodeWalkerDir)\CodeWalker.Core\CodeWalker.Core.csproj" />
+  </ItemGroup>
+
+</Project>
