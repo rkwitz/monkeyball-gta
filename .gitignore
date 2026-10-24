@@ -1,0 +1,30 @@
+# Build output
+src/**/bin/
+src/**/obj/
+packer/bin/
+packer/obj/
+dist/
+build/
+
+# Never commit game files, dumps, or converted Sega assets
+reference/
+*.xbe
+*.iso
+*.gma
+*.tpl
+*.lz
+*.ydr
+*.ydd
+*.ycd
+*.ytd
+*.rpf
+
+# Editors and OS
+.vs/
+.vscode/
+.idea/
+*.user
+.DS_Store
+Thumbs.db
+__pycache__/
+
