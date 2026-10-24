@@ -34,7 +34,7 @@ your own folder wherever you see that path. It's the folder that has `GTA5.exe` 
    your GTA V folder. Make a folder called `scripts` there if there isn't one:
    `C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V\scripts`.
 3. **OpenIV**: install it from <https://openiv.com/>, open it and pick *GTA V* > *Windows*. Then go to
-   *Tools* > *ASI Manager* and install **OpenIV.ASI**. This makes GTA read add-ons from its `mods`
+   *Tools* > *ASI Manager* and install **ASI Loader** (if it isn't shown as installed) and **OpenIV.ASI**. This makes GTA read add-ons from its `mods`
    folder, so your original game files are never touched.
 4. **Python 3.9 or newer**: download it from <https://www.python.org/downloads/>. In the installer,
    tick **"Add python.exe to PATH"**.
@@ -147,6 +147,11 @@ ScriptHookVDotNet can stay or go; deleting `dinput8.dll` turns all script mods o
 ## How it works
 
 See [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md).
+
+## License
+
+The code in this repository is under the [MIT License](LICENSE). That covers this project's own
+scripts and tools only, not Super Monkey Ball, GTA V, or anything the build makes from your disc.
 
 ## Credits
 
