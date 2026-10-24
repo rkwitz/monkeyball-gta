@@ -33,12 +33,13 @@ BALL = [("BALL_COLOR", None, 0.6, None), ("BALL_CLEAR", None, 0.3, None)]
 # and posts are a white gradient made blue, the inner trim is a shine layer, the timer panel is dark.
 # The game only shows the timer from the front, and the trim around the panel has a notch for the small
 # digits that is on the other side seen from behind. So the back is the front turned half a turn: the
-# front-facing triangles of every part twice (as they are, then turned to face the back), plus the
-# side-on ones once. The clock then reads, and fits its box, from both sides.
+# front faces of every part twice (as they are, then turned to face the back), plus the side-on ones
+# once. The clock then reads, and fits its box, from both sides. By winding, the timer panel and glass
+# face -z but the frame and trim faces seen with them face +z (a -z pick put the notch on the wrong side).
 GOAL_COLOURS = {0: (60, 120, 255), 1: (190, 225, 255), 2: (14, 14, 18)}
-GOAL = [("GOAL", GOAL_COLOURS, None, {3: 0.35}, {"faces": "front"}),
-        ("GOAL", GOAL_COLOURS, None, {3: 0.35}, {"faces": "front", "turn": True}),
-        ("GOAL", GOAL_COLOURS, None, None, {"faces": "edge"})]
+GOAL = [("GOAL", GOAL_COLOURS, None, {3: 0.35}, {"meshes": [2, 3], "faces": "front", "turn": turn}) for turn in (False, True)] + \
+       [("GOAL", GOAL_COLOURS, None, None, {"meshes": [0, 1], "faces": "back", "turn": turn}) for turn in (False, True)] + \
+       [("GOAL", GOAL_COLOURS, None, None, {"meshes": [0, 1], "faces": "edge"})]
 # The goal's timer digits light up on the panel (their material colour is black and the game lights them
 # by the texture alone), so draw them at full colour, just in front of the panel.
 LCD = {"offset": (0.0, 0.0, 0.02)}

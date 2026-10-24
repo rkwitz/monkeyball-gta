@@ -29,7 +29,8 @@ def to_gta(p, scale):
 
 
 def _facing(tri):
-    """'front' (the timer panel's way, -z by winding), 'back' (+z) or 'edge' for a Monkey Ball triangle."""
+    """'front' (-z by winding, the way the timer panel's triangles run), 'back' (+z) or 'edge' for a
+    Monkey Ball triangle."""
     a, b, c = (v.position for v in tri)
     n = _cross(_sub(b, a), _sub(c, a))
     length = (n[0] ** 2 + n[1] ** 2 + n[2] ** 2) ** 0.5 or 1.0
@@ -155,8 +156,8 @@ class DrawableBuilder:
         double_sided adds the back faces (GTA culls them; flat things like confetti need both).
         offset moves the model (in Monkey Ball units and axes) before converting; turn then spins it
         half a turn about the up axis, so a part that faces the front faces the back.
-        faces keeps only some triangles, by their winding normal in Monkey Ball axes: "front" those
-        facing the way the goal's timer panel does, "edge" those side-on to it.
+        faces keeps only some triangles, by their winding normal in Monkey Ball axes: "front" (-z),
+        "back" (+z) or "edge" (side-on).
         vertex_fn(vertex) -> (GTA position, GTA normal, (4 weight bytes, 4 bone indices)) places the
         vertices of a skinned drawable (see set_skeleton) instead of the plain scale-and-swap.
         rigid (with vertex_fn) doesn't skin: each triangle goes whole to the bone that weighs most on
